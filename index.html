@@ -15,17 +15,19 @@
     <!-- external js -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> -->
+
 </head>
 
 <body>
 
     <!--====== Header Section Start ======-->
-    <header>
+    <header style="background-size: cover;background-image: url(./assets/bg.png);  background-position: center;background-repeat: no-repeat;background-attachment: fixed;">
         <nav class="navigation">
 
             <!-- Logo -->
             <div class="logo">
-                <h1>LOGO</h1>
+                <img src="./assets/qiqt.svg" alt="" style="width: 80px;">
             </div>
 
             <!-- Navigation -->
@@ -35,7 +37,7 @@
                 <li><a href="#">Schedule</a></li>
                 <!-- <li><a href="#">Title and Abstract</a></li> -->
                 <li><a href="#">Contact</a></li>
-                <li><a href="#contact"><span>Register</span></a></li>
+                <li><a href="#"><span>Register</span></a></li>
             </ul>
 
             <div class="humbarger">
@@ -47,10 +49,14 @@
 
         <!-- ==== Intro Section Start ==== -->
         <div class="intro-section" id="home">
-            <div class="bg-img"></div>
+            <!-- <div class="bg-img"></div> -->
             <div class="intro-content">
                 <h1>QIQT - 2023</h1>
-                <h6>International Conference on Quantum Information and Quantum Technology - 2023</h6>
+                <h6 style="font-size: 2rem;">
+                    May 8 - June 15
+                </h6>
+                <br>
+                <h6>4<sup>th</sup> International Conference on Quantum Information and Quantum Technology - 2023</h6>
                 <p class="tagline">
                     <span class="change-container">
                         <span class="changing">Quantum Information</span>
@@ -71,21 +77,21 @@
 
     <!--====== Youtube section ======-->
     <div
-        style="display: flex;flex-direction: row;height: 100vh;flex-wrap: wrap;align-content: center;justify-content: space-around;align-items: center;">
+        style="display: flex;flex-direction: row;min-height: 80vh;flex-wrap: wrap;align-content: center;justify-content: space-around;align-items: center;background-size: cover;background-image: url(./assets/bg.png);  background-position: center;background-repeat: no-repeat;background-attachment: fixed;">
         <div
-            style="width: 50%;min-width: 400PX;display: flex;align-content: center;justify-content: space-around;align-items: center;">
+            style="width: 40%;min-width: 400PX;display: flex;align-content: center;justify-content: space-around;align-items: center;">
             <iframe style="width: 560px;height: 315px;max-width: 100%;" src="https://www.youtube.com/embed/odoCmZbfTDY"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
         </div>
         <div
-            style="width: 50%;min-width: 400PX;display: flex;flex-direction: column; align-content: center;justify-content: space-around;align-items: center;">
+            style="width: 60%;min-width: 400PX;display: flex;flex-direction: column; align-content: center;justify-content: space-around;align-items: center;" >
             <div style="margin: 10px 0;">
-                <h2>About the Event</h2>
+                <h1>About the Event</h1>
             </div>
-            <div>
-                <p>
+            <div style="padding: 0 100px;">
+                <p style="line-height: 2rem;text-align: justify;font-size: large;">
                     Quantum Information and Quantum Technology - 2023 (QIQT -2023) is the fourth in the series of
                     workshops
                     conducted in the summer months at the Indian Institute of Science Education and Research Kolkata
@@ -93,8 +99,7 @@
                     students
                     and young researchers in this exciting field of research. The experts include Physicists, Chemists,
                     Mathematicians, Computer Scientists, and Engineers.
-                </p>
-                <p>
+                    <br>
                     Each year a focus area is identified, keeping the international trend in mind, QIQT -2023 intends to
                     focus on Quantum Optics, Quantum Chemistry, Quantum Foundation, and Quantum Materials. The workshop
                     will
@@ -107,525 +112,12 @@
 
     <!--====== Speakers list ======-->
 
-    <div style="width: 100%;text-align: center;margin-top: 40px;">
+    <div style="width: 100%;text-align: center;padding-top: 40px;background-size: cover;background-image: url(./assets/bg.png);  background-position: center;background-repeat: no-repeat;background-attachment: fixed;">
         <h1 style="font-size: 3rem;">
             The Speakers
         </h1>
     </div>
-    <div class="container">
-
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control">
-                    Details
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO Q</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control">
-                    Details
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO Q</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control">
-                    Details
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO Q</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control">
-                    Details
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO Q</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
-            </div>
-
-            <h3 class="card__name">Prof. Dr. Maciej Lewenstein</h3>
-            <span class="card__profession">ICFO</span>
-
-            <div class="card__social " id="card-social" style="cursor: pointer;">
-                <div class="card__social-control" style="text-align: center;">
-                    Details
-                </div>
-            </div>
-        </div>
+    <div class="container" id="cardContainer" style="background-size: cover;background-image: url(./assets/bg.png);  background-position: center;background-repeat: no-repeat;background-attachment: fixed;">
 
     </div>
 
@@ -636,6 +128,7 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="main.js"></script>
+    <script src="speakers.js"></script>
 </body>
 
 </html>

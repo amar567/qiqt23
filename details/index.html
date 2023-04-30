@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QIQT-23</title>
+
+    <!-- external css -->
+
+    <!-- local cs -->
+    <link rel="stylesheet" href="../main.css">
+
+    <!-- external js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> -->
+
+</head>
+
+<body>
+
+    <!--====== Header Section Start ======-->
+    <header style="background-size: cover;background-image: url(../assets/bg.png);  background-position: center;background-repeat: no-repeat;background-attachment: fixed;">
+        <nav class="navigation">
+
+            <!-- Logo -->
+            <div class="logo">
+                <img src="/assets/qiqt.svg" alt="" style="width: 80px;">
+            </div>
+
+            <!-- Navigation -->
+            <ul class="menu-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Schedule</a></li>
+                <!-- <li><a href="#">Title and Abstract</a></li> -->
+                <li><a href="#">Contact</a></li>
+                <li><a href="#"><span>Register</span></a></li>
+            </ul>
+
+            <div class="humbarger">
+                <div class="bar"></div>
+                <div class="bar2 bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+
+        <!-- ==== Intro Section Start ==== -->
+        <div class="intro-section" id="home">
+            <div id="detailCard" class="intro-content">
+                <div class="card">
+                    <div class="card__border">
+                        <img src="/assets/speakers/prof2.jpg" alt="card image" class="card__img" />
+                    </div>
+              
+                    <h3 class="card__name">${data["Name"]}</h3>
+                    <span class="card__profession">${data["Affiliation"]}</span>
+              
+                    <div class="card__social " id="card-social" style="cursor: pointer;" onclick="openDetailsPg()">
+                        <div class="card__social-control">
+                            Details
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </header>
+
+
+
+    <!--====== Footer section ======-->
+
+
+
+    <!--=============== MAIN JS ===============-->
+    <script src="./main.js"></script>
+    <!-- <script src="speakers.js"></script> -->
+</body>
+
+</html>
