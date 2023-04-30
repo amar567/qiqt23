@@ -31,7 +31,7 @@ let initializeSpeakers = (data)=>{
             </div>
 
             <h3 class="card__name">${data[profile]["Name"]}</h3>
-            <span class="card__profession">${data[profile]["Affiliation"]}</span>
+            <span class="card__profession" style="color:black;">${data[profile]["Affiliation"]}</span>
 
             <div class="card__social " id="card-social" style="cursor: pointer;" onclick="openDetailsPg(${profile})">
                 <div class="card__social-control">

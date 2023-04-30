@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('.menu-list li a').click(function(event) {
         if ($(window).width() < 768) {
           $('.menu-list').slideUp(500);
-          event.preventDefault(); 
+          // event.preventDefault(); 
         }
       });
 });
