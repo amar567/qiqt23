@@ -386,6 +386,9 @@ header .navigation .menu-list li a {
 .changing:nth-child(5) {
     animation: revealNextWord 7.5s cubic-bezier(0.57, 1.52, 0.9, 1.08) 7.5s infinite;
 }
+/* .changing:nth-child(6) {
+    animation: revealNextWord 7.5s cubic-bezier(0.57, 1.52, 0.9, 1.08) 9s infinite;
+} */
 
 @keyframes revealNextWord {
     0% {
@@ -546,3 +549,15 @@ header .navigation .menu-list li a {
     justify-content: space-between;
     padding-bottom: 10px;
 }
+
+/* this is for hiding navbar */
+
+  .navbar {
+    position: fixed;
+    transition: transform 0.2s ease-in-out;
+    will-change: transform;
+  }
+  .navbar--hidden {
+    transform: translateY(-105%);
+  }
+  
