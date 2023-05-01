@@ -34,7 +34,7 @@ var loadData = (data) => {
                         </svg>
                         &nbsp;&nbsp;
                         <div>
-                        ${date[1]} IST
+                        ${date[1]} (IST)
                         </div>
                     </div>
                     <br/><br/>
@@ -93,5 +93,8 @@ function convertToLocalTime(dateStr, timeStr) {
 
   // console.log(localDateStr,localTimeStr,timezone);
   // return([localDateStr,localTimeStr,timezone])
+
+  timeStr = timeStr.replace(":00 "," ")
+
   return([dateStr,timeStr])
 }
