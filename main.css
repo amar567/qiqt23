@@ -545,7 +545,7 @@ header .navigation .menu-list li a {
 .details{
     display: flex;
     flex-direction: row;
-    width: 160px;
+    /* width: 160px; */
     justify-content: space-between;
     padding-bottom: 10px;
 }

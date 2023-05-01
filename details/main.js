@@ -34,14 +34,15 @@ var loadData = (data) => {
                         </svg>
                         &nbsp;&nbsp;
                         <div>
-                        ${date[1]}
+                        ${date[1]+" "+date[2]}
                         </div>
                     </div>
+                    <br/><br/>
                     <div>
                         <button
-                            style="width: 100%;background-color: #FF0000;color: white;padding: 10px;border-radius: 10px;outline: none;border: none;cursor: pointer;"
-                            onclick="redirect(${data["Link"]})">
-                            Play on Youtube
+                            style="width: 100%;background-color: #FF0000;color: white;padding: 16px 24px;border-radius: 10px;outline: none;border: none;cursor: pointer;"
+                            onclick="redirect(${data["Link"]})" >
+                            Watch on Youtube
                         </button>
                     </div>
                 </div>
@@ -87,7 +88,9 @@ function convertToLocalTime(dateStr, timeStr) {
 
   let localDateStr = localDate.toLocaleDateString();
   let localTimeStr = localDate.toLocaleTimeString();
+  // var zone = Intl.DateTimeFormat().resolvedOptions().timeZone            // "America/Los_Angeles"
+  let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
-  console.log(localDateStr,localTimeStr);
-  return([localDateStr,localTimeStr])
+  console.log(localDateStr,localTimeStr,timezone);
+  return([localDateStr,localTimeStr,timezone])
 }
