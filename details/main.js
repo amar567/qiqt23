@@ -34,7 +34,7 @@ var loadData = (data) => {
                         </svg>
                         &nbsp;&nbsp;
                         <div>
-                        ${date[1]+" "+date[2]}
+                        ${date[1]} IST
                         </div>
                     </div>
                     <br/><br/>
@@ -79,18 +79,19 @@ var importdata = $.getJSON("/assets/data.json", function () {
 
 // Define input date and time strings  
 function convertToLocalTime(dateStr, timeStr) {
-  let istDate = new Date(`${dateStr} ${timeStr} GMT+0530`);
-  let istTimestamp = istDate.getTime();
-  let utcTimestamp = istTimestamp - 330 * 60 * 1000;
-  let offset = new Date().getTimezoneOffset();
-  let localTimestamp = utcTimestamp - offset * 60 * 1000;
-  let localDate = new Date(localTimestamp);
+  // let istDate = new Date(`${dateStr} ${timeStr} GMT+0530`);
+  // let istTimestamp = istDate.getTime();
+  // let utcTimestamp = istTimestamp - 330 * 60 * 1000;
+  // let offset = new Date().getTimezoneOffset();
+  // let localTimestamp = utcTimestamp - offset * 60 * 1000;
+  // let localDate = new Date(localTimestamp);
 
-  let localDateStr = localDate.toLocaleDateString();
-  let localTimeStr = localDate.toLocaleTimeString();
-  // var zone = Intl.DateTimeFormat().resolvedOptions().timeZone            // "America/Los_Angeles"
-  let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+  // let localDateStr = localDate.toLocaleDateString();
+  // let localTimeStr = localDate.toLocaleTimeString();
+  // // var zone = Intl.DateTimeFormat().resolvedOptions().timeZone            // "America/Los_Angeles"
+  // let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
-  console.log(localDateStr,localTimeStr,timezone);
-  return([localDateStr,localTimeStr,timezone])
+  // console.log(localDateStr,localTimeStr,timezone);
+  // return([localDateStr,localTimeStr,timezone])
+  return([dateStr,timeStr])
 }
