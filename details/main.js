@@ -6,7 +6,7 @@ var loadData = (data) => {
     <div id="" class=""
                 style="min-height: 85vh;display: flex;flex-direction: row;flex-wrap: wrap;flex-direction: row;flex-wrap: wrap;align-content: center;align-items: center;">
                 <div style="width: 40%;min-width: 400px; display: flex;flex-direction: column;align-items: center;">
-                    <img src="/assets/speakers/prof2.jpg" alt="card image" style="width: 250px;border-radius: 50%;" />
+                    <img src="/assets/speakers/${data["Image name"]}.png" alt="card image" style="width: 250px;border-radius: 50%;" />
                     <h1 class="">${data["Name"]}</h1>
                     <span class="">${data["Affiliation"]}</span>
                     <br>

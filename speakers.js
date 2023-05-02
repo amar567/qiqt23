@@ -27,7 +27,7 @@ let initializeSpeakers = (data)=>{
         speakerList.innerHTML += `
         <div class="card">
             <div class="card__border">
-                <img src="./assets/speakers/prof2.jpg" alt="card image" class="card__img" />
+                <img src="./assets/speakers/${data[profile]["Image name"]}.png" alt="${data[profile]["Image name"]}" class="card__img" loading="lazy" />
             </div>
 
             <h3 class="card__name">${data[profile]["Name"]}</h3>

@@ -259,6 +259,10 @@ header .navigation {
     /* border-bottom: 2px solid #0c2d48; */
 }
 
+.logo{
+    padding-left: 30px;
+}
+
 header .navigation .logo {
     margin-left: 20px;
 }
@@ -475,6 +479,10 @@ header .navigation .menu-list li a {
 /* Large Mobile :480px. */
 
 @media only screen and (max-width: 767px) {
+
+    .logo{
+        padding: 0;
+    }
 
     header .navigation .menu-list {
         position: absolute;

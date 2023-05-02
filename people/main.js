@@ -1,58 +1,48 @@
 var loadData = (data) => {
-  let date = convertToLocalTime(data["Date (double click to pick)"],data["Time ( IST )"])
-  let detailCard = document.getElementById("detailCard")
 
-  detailCard.innerHTML = `
-    <div id="" class=""
-                style="min-height: 85vh;display: flex;flex-direction: row;flex-wrap: wrap;flex-direction: row;flex-wrap: wrap;align-content: center;align-items: center;">
-                <div style="width: 40%;min-width: 400px; display: flex;flex-direction: column;align-items: center;">
-                    <img src="/assets/speakers/prof2.jpg" alt="card image" style="width: 250px;border-radius: 50%;" />
-                    <h1 class="">${data["Name"]}</h1>
-                    <span class="">${data["Affiliation"]}</span>
-                    <br>
-                    <div class="details">
-                        <svg data-v-c3d31587="" focusable="false" preserveAspectRatio="xMidYMid meet"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="item-card__icon" width="20"
-                            height="20" viewBox="0 0 32 32" aria-hidden="true">
-                            <path
-                                d="M26,4h-4V2h-2v2h-8V2h-2v2H6C4.9,4,4,4.9,4,6v20c0,1.1,0.9,2,2,2h20c1.1,0,2-0.9,2-2V6C28,4.9,27.1,4,26,4z M26,26H6V12h20	V26z M26,10H6V6h4v2h2V6h8v2h2V6h4V10z">
-                            </path>
-                        </svg>
-                        &nbsp;&nbsp;
-                        <div>
-                          ${date[0]}
-                        </div>
-                    </div>
-                    <div class="details">
-                        <svg data-v-c3d31587="" focusable="false" preserveAspectRatio="xMidYMid meet"
-                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="item-card__icon" width="20"
-                            height="20" viewBox="0 0 20 20" aria-hidden="true">
-                            <path
-                                d="M10,19c-5,0-9-4-9-9s4-9,9-9s9,4,9,9S15,19,10,19z M10,2.3c-4.3,0-7.7,3.5-7.7,7.7s3.5,7.7,7.7,7.7s7.7-3.5,7.7-7.7	S14.3,2.3,10,2.3z">
-                            </path>
-                            <path d="M13 13.9L9.4 10.3 9.4 4 10.6 4 10.6 9.7 13.9 13z"></path>
-                        </svg>
-                        &nbsp;&nbsp;
-                        <div>
-                        ${date[1]}
-                        </div>
-                    </div>
-                    <div>
-                        <button
-                            style="width: 100%;background-color: #FF0000;color: white;padding: 10px;border-radius: 10px;outline: none;border: none;cursor: pointer;"
-                            onclick="redirect(${data["Link"]})">
-                            Play on Youtube
-                        </button>
-                    </div>
-                </div>
-                <div style="width: 60%;min-width: 400px;padding: 0 30px;align-items: flex-start;">
-                    <h2 style="padding: 30px 0;">${data["Title"]}</h2>
-                    <p style="line-height: 2rem;text-align: justify;font-size: large;">
-                      ${data["Abstract"]}
-                    </p>
-                </div>
-            </div>
-`
+  for (const profile in data) {
+    console.log(data[profile]["Image name"]);
+
+    if (data[profile]["role"] === "organiser") {
+
+      let organiserSection = document.getElementById("organisers")
+      organiserSection.innerHTML += `
+        <div class="card">
+          <div class="card__border">
+              <img src="/assets/people/${data[profile]["Image name"]}.png" alt="" class="card__img" loading="lazy" />
+          </div>
+
+          <h3 class="card__name">${data[profile]["Name"]}</h3>
+
+          <div class="card__social " id="card-social" style="cursor: pointer;" onclick="mailto(${data[profile]["email"]})">
+              <div class="card__social-control">
+                  E-mail
+              </div>
+          </div>
+        </div>
+      `
+    }
+
+    if (data[profile]["role"] === "codinator") {
+      let cordinatorSection = document.getElementById("cordinator")
+
+      cordinatorSection.innerHTML += `
+        <div class="card">
+          <div class="card__border">
+              <img src="/assets/people/${data[profile]["Image name"]}.png" alt="" class="card__img" loading="lazy" />
+          </div>
+
+          <h3 class="card__name">${data[profile]["Name"]}</h3>
+
+          <div class="card__social " id="card-social" style="cursor: pointer;" onclick="mailto('${data[profile]["email"]}')">
+              <div class="card__social-control">
+                  E-mail
+              </div>
+          </div>
+        </div>
+      `
+    }
+  }
 }
 
 // const queryString = window.location.search;
@@ -63,31 +53,13 @@ let redirect = (link) => {
   window.location.href = link
 }
 
-var importdata = $.getJSON("/assets/data.json", function () {
-  data = importdata.responseJSON
-
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const id = urlParams.get('id')
-
-  loadData(data[id])
-})
-
-
-// convert to local time
-
-// Define input date and time strings  
-function convertToLocalTime(dateStr, timeStr) {
-  let istDate = new Date(`${dateStr} ${timeStr} GMT+0530`);
-  let istTimestamp = istDate.getTime();
-  let utcTimestamp = istTimestamp - 330 * 60 * 1000;
-  let offset = new Date().getTimezoneOffset();
-  let localTimestamp = utcTimestamp - offset * 60 * 1000;
-  let localDate = new Date(localTimestamp);
-
-  let localDateStr = localDate.toLocaleDateString();
-  let localTimeStr = localDate.toLocaleTimeString();
-
-  console.log(localDateStr,localTimeStr);
-  return([localDateStr,localTimeStr])
+let mailto = (link) => {
+  console.log(link);
+  window.location.href = 'mailto:'+ link
 }
+
+const importdata = $.getJSON("/people/people_data.json", function () {
+  data = importdata.responseJSON
+  console.log(data);
+  loadData(data)
+})
