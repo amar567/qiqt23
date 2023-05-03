@@ -20,7 +20,7 @@ var loadData = (data) => {
                         </svg>
                         &nbsp;&nbsp;
                         <div>
-                          ${date[0]}
+                          <b>${date[0]}</b>
                         </div>
                     </div>
                     <div class="details">
@@ -34,7 +34,7 @@ var loadData = (data) => {
                         </svg>
                         &nbsp;&nbsp;
                         <div>
-                        ${date[1]} (IST)
+                        <b>${date[1]} (IST)</b>
                         </div>
                     </div>
                     <br/><br/>

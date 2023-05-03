@@ -4,7 +4,7 @@
 read -p "Enter the directory name: " dir_name
 
 # Loop through all files in the directory
-for file in $dir_name/*; do
+for file in ./*; do
     # Check if the file is an image
     if [[ $(file -b --mime-type "$file") == image/* ]]; then
         # Get the filename and extension
@@ -12,7 +12,7 @@ for file in $dir_name/*; do
         extension="${filename##*.}"
 
         # Crop the image to 100x100 px and save as PNG with the same name
-        convert "$file" -resize 150x150^ -gravity center -crop 150x150+0+0 +repage "$dir_name/output/${filename%.*}.png"
+        convert "$file" -resize 150x150^ -gravity center -crop 150x150+0+0 +repage "./output/${filename%.*}.png"
     fi
 done
 
