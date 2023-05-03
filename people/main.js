@@ -14,7 +14,7 @@ var loadData = (data) => {
 
           <h3 class="card__name">${data[profile]["Name"]}</h3>
 
-          <div class="card__social " id="card-social" style="cursor: pointer;" onclick="mailto(${data[profile]["email"]})">
+          <div class="card__social " id="card-social" style="cursor: pointer;" onclick="mailto('${data[profile]["email"]}')">
               <div class="card__social-control">
                   E-mail
               </div>
