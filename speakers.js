@@ -17,11 +17,11 @@ let speakerList = document.getElementById("cardContainer")
 //         </div>
 // `
 
-let openDetailsPg = (data)=>{
+let openDetailsPg = (data) => {
     window.location.href = `/details/?id=${data}`
 }
 
-let initializeSpeakers = (data)=>{
+let initializeSpeakers = (data) => {
     for (const profile in data) {
         // console.log(data[profile]["Name"]);
         speakerList.innerHTML += `
@@ -43,6 +43,25 @@ let initializeSpeakers = (data)=>{
     }
 }
 
+
+// newdata = []
+// let yo = async (data) => {
+//     for (const profile in data) {
+//         const response = $.getJSON("https://firebasestorage.googleapis.com/v0/b/qiqt-71960.appspot.com/o/" + data[profile]["Image name"] + ".png", function () {
+//             data2 = response.responseJSON
+//             if (response.status < 300) {
+//                 let Imglink = "https://firebasestorage.googleapis.com/v0/b/qiqt-71960.appspot.com/o/" + data[profile]["Image name"] + ".png?alt=media&token=" + data2["downloadTokens"]
+//                 data[profile]["Imglink"] = Imglink
+//                 newdata.push(data[profile])
+//             }
+//         })
+//     }
+//     await console.log(newdata);
+//     // download(newdata, 'response.json', 'text/plain');
+//     copy(newdata)
+
+// }
+
 var importdata = $.getJSON("./assets/data.json", function () {
     data = importdata.responseJSON
     // console.log(data);
@@ -55,4 +74,5 @@ var importdata = $.getJSON("./assets/data.json", function () {
     //     return 0;
     //   });
     initializeSpeakers(data)
-  })
+    // yo(data)
+})
