@@ -62,17 +62,35 @@ let initializeSpeakers = (data) => {
 
 // }
 
-var importdata = $.getJSON("./assets/data.json", function () {
-    data = importdata.responseJSON
-    // console.log(data);
-    // data.sort(function(a, b) {
-    //     var keyA = new Date(parseInt(a["Citations"])),
-    //       keyB = new Date(parseInt(b[["Citations"]]));
-    //     // Compare the 2 dates
-    //     if (keyA < keyB) return 1;
-    //     if (keyA > keyB) return -1;
-    //     return 0;
-    //   });
-    initializeSpeakers(data)
-    // yo(data)
-})
+// var importdata = $.getJSON("./assets/data.json", function () {
+//     data = importdata.responseJSON
+//     // console.log(data);
+//     // data.sort(function(a, b) {
+//     //     var keyA = new Date(parseInt(a["Citations"])),
+//     //       keyB = new Date(parseInt(b[["Citations"]]));
+//     //     // Compare the 2 dates
+//     //     if (keyA < keyB) return 1;
+//     //     if (keyA > keyB) return -1;
+//     //     return 0;
+//     //   });
+//     initializeSpeakers(data)
+//     // yo(data)
+// })
+
+let loadWithDelay = setTimeout(() => {
+    var importdata = $.getJSON("./assets/data.json", function () {
+        data = importdata.responseJSON
+        initializeSpeakers(data)
+    })
+  
+    let yt = document.getElementById("youtube")
+  
+    yt.innerHTML = `
+    <iframe style="width: 560px;height: 315px;max-width: 90%;"
+    src="https://www.youtube.com/embed/V_5wmeICXiU"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+    `
+  
+  }, 2000);

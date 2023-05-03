@@ -86,9 +86,12 @@ let mailto = (link) => {
   window.location.href = 'mailto:'+ link
 }
 
-const importdata = $.getJSON("/people/people_data.json", function () {
-  data = importdata.responseJSON
-  // console.log(data);
-  loadData(data)
-  // yo(data)
-})
+
+setTimeout(() => {
+  const importdata = $.getJSON("/people/people_data.json", function () {
+    data = importdata.responseJSON
+    // console.log(data);
+    loadData(data)
+    // yo(data)
+  })
+}, 00);
