@@ -41,7 +41,7 @@ var loadData = (data) => {
                     <div>
                         <button
                             style="width: 100%;background-color: #FF0000;color: white;padding: 16px 24px;border-radius: 10px;outline: none;border: none;cursor: pointer;"
-                            onclick="redirect(${data["Link"]})" >
+                            onclick="redirect('${data["Link"]}')" >
                             Watch on Youtube
                         </button>
                     </div>
