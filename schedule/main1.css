@@ -1,0 +1,95 @@
+details {
+  color: white;
+  transition: all 0.5s cubic-bezier(0.85, -1, 0.1, 1);
+  background: #678;
+  border-radius: 1.5em;
+  padding: calc(1.5em/1.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 600px;
+  box-shadow: 0 -0.5em 1em rgba(0, 0, 0, 0.5), 0 0.3em 0.1em rgba(0, 0, 0, 0.2);
+  margin-bottom: 2em;
+  overflow: hidden;
+}
+
+summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border-radius: calc(1.5em/2);
+  text-align: center;
+  cursor: default;
+}
+
+details:not([open]) {
+  box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
+  /* transform: translateY(1em) rotate(5deg); */
+  width: 60%;
+}
+details:not([open]) > summary:after,
+details:not([open]) > summary:before {
+  width: 0;
+  background: rgba(0, 0, 0, 0);
+}
+details:not([open]) > summary {
+  transition: background-color 0.5s;
+  background: rgba(0, 0, 0, 0.5);
+  transition-delay: 0.5s;
+}
+
+details[open] {
+  transform: translatey(1em);
+  margin-top: 0;
+}
+details[open] > summary:after,
+details[open] > summary:before {
+  width: 60%;
+}
+details[open] > summary {
+  transition-delay: 0.5s;
+  transition: background-color 0.5s;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.one:not([open]) {
+  margin-top: 1em;
+}
+
+details.three[open] {
+  margin-top: 1.2em;
+}
+details.three[open] > blockquote {
+  color: #333;
+}
+
+.one {
+  background-color: #456;
+}
+
+.three {
+  background: skyblue;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before,
+summary::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  padding: calc(1.5em/2);
+  border-radius: 1.5em;
+  transition-duration: 0.5s;
+  margin: 0 calc(1.5em/3);
+}
+
+summary::before {
+  left: calc(1.5em/1);
+}
+
+summary::after {
+  right: calc(1.5em/1);
+}
