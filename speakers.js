@@ -22,12 +22,14 @@ let openDetailsPg = (data) => {
 }
 
 let initializeSpeakers = (data) => {
+    speakerList.innerHTML = ``
     for (const profile in data) {
         // console.log(data[profile]["Name"]);
+
         speakerList.innerHTML += `
         <div class="card">
             <div class="card__border">
-                <img src="./assets/speakers/${data[profile]["Image name"]}.png" alt="${data[profile]["Image name"]}" class="card__img" loading="lazy" />
+                <img src="./assets/speakers/Speaker_s photo/trial/compressed/${data[profile]["Image name"]}.png" alt="${data[profile]["Image name"]}" class="card__img" loading="lazy" />
             </div>
 
             <h3 class="card__name">${data[profile]["Name"]}</h3>
