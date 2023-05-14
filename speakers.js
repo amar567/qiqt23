@@ -79,20 +79,69 @@ let initializeSpeakers = (data) => {
 //     // yo(data)
 // })
 
-let loadWithDelay = setTimeout(() => {
-    var importdata = $.getJSON("./assets/data.json", function () {
-        data = importdata.responseJSON
-        initializeSpeakers(data)
-    })
-  
-    let yt = document.getElementById("youtube")
-  
-    yt.innerHTML = `
-    <iframe style="width: 560px;height: 315px;max-width: 90%;"
-    src="https://www.youtube.com/embed/V_5wmeICXiU"
-    title="YouTube video player" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen></iframe>
-    `
-  
-  }, 2000);
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  if (getCookie("visit") !== "1") {
+    let loadWithDelay = setTimeout(() => {
+        var importdata = $.getJSON("./assets/data.json", function () {
+            data = importdata.responseJSON
+            initializeSpeakers(data)
+        })
+      
+        let yt = document.getElementById("youtube")
+      
+        yt.innerHTML = `
+        <iframe style="width: 560px;height: 315px;max-width: 90%;"
+        src="https://www.youtube.com/embed/V_5wmeICXiU"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+        `
+      
+      }, 2000);
+  } else {
+    let loadWithDelay = setTimeout(() => {
+        var importdata = $.getJSON("./assets/data.json", function () {
+            data = importdata.responseJSON
+            initializeSpeakers(data)
+        })
+      
+        let yt = document.getElementById("youtube")
+      
+        yt.innerHTML = `
+        <iframe style="width: 560px;height: 315px;max-width: 90%;"
+        src="https://www.youtube.com/embed/V_5wmeICXiU"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+        `
+      
+      }, 000);
+  }
+
+
+  document.onload = ()=>{
+    setCookie("visit","1",1)
+    console.log("yo");
+  }
