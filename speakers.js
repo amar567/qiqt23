@@ -119,7 +119,7 @@ function setCookie(cname, cvalue, exdays) {
         allowfullscreen></iframe>
         `
       
-      }, 2000);
+      }, 0);
   } else {
     let loadWithDelay = setTimeout(() => {
         var importdata = $.getJSON("./assets/data.json", function () {
