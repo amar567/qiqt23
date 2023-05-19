@@ -61,3 +61,29 @@ function pushNavbar(lastScroll, currentScroll) {
   else
     navbar.className = "navigation navbar";
 }
+
+
+// pop up
+
+// let popup = document.getElementById("popup")
+
+// // check cookie
+// if ((Date.now() - localStorage.getItem("Lastvisit")) > 1800000 ) {
+//   // closePopup()
+//   showPopup()
+// }else if (localStorage,getItem("Lastvisit")=== undefined) {
+//   showPopup()  
+// }
+
+// function closePopup( ) {
+//   // close the popup 
+//   popup.style.display = "none"
+//   // set cookie
+//   localStorage.setItem("Lastvisit",Date.now())
+// }
+// function showPopup( ) {
+//   // close the popup 
+//   popup.style.display = "flex"
+// }
+
+
