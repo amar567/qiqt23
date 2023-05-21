@@ -10,7 +10,7 @@ var loadData = (data) => {
       scrollTop: $("#active").offset().top
     },
       'fast');
-  }, 300);
+  }, 700);
 }
 
 
