@@ -28,7 +28,7 @@ let initializeSpeakers = (data) => {
 
         // console.log(data[profile]["Image name"] !== "hide");
 
-        if (data[profile]["Image name"] !== "hide") {
+        if (data[profile]["Show?"] !== "hide") {
             speakerList.innerHTML += `
                 <div class="card">
                     <div class="card__border">
