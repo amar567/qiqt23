@@ -18,7 +18,7 @@ var loadData = (data) => {
         )
     }
 
-    let temp= data[1]["Date (double click to pick)"].split("/")
+    let temp= data[0]["Date (double click to pick)"].split("/")
 
     let date = temp[1]+" - "+temp[0]+" - "+temp[2]
 
