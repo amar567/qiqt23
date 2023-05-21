@@ -26,22 +26,26 @@ let initializeSpeakers = (data) => {
     for (const profile in data) {
         // console.log(data[profile]["Name"]);
 
-        speakerList.innerHTML += `
-        <div class="card">
-            <div class="card__border">
-                <img src="/assets/speakers/${data[profile]["Image name"]}.png" alt="${data[profile]["Image name"]}" class="card__img" loading="lazy" />
-            </div>
+        // console.log(data[profile]["Image name"] !== "hide");
 
-            <h3 class="card__name">${data[profile]["Name"]}</h3>
-            <span class="card__profession" style="color:black;">${data[profile]["Affiliation"]}</span>
+        if (data[profile]["Image name"] !== "hide") {
+            speakerList.innerHTML += `
+                <div class="card">
+                    <div class="card__border">
+                        <img src="/assets/speakers/${data[profile]["Image name"]}.png" alt="${data[profile]["Image name"]}" class="card__img" loading="lazy" />
+                    </div>
 
-            <div class="card__social " id="card-social" style="cursor: pointer;" onclick="openDetailsPg(${profile})">
-                <div class="card__social-control">
-                    Details
+                    <h3 class="card__name">${data[profile]["Name"]}</h3>
+                    <span class="card__profession" style="color:black;">${data[profile]["Affiliation"]}</span>
+
+                    <div class="card__social " id="card-social" style="cursor: pointer;" onclick="openDetailsPg(${profile})">
+                        <div class="card__social-control">
+                            Details
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-`
+            `
+        }
     }
 }
 

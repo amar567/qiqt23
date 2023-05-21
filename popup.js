@@ -7,7 +7,7 @@ var loadData = (data) => {
         innerDivs.push(
             `
             <div style="display: flex;flex-direction: row;width: 300px;align-items: center;justify-content: space-between;">
-                <div>
+                <div style="min-width:30%;">
                     ${data[i]["Time ( IST )"].split(":")[0]+" : "+data[i]["Time ( IST )"].split(":")[1]}
                 </div>
                 <div>

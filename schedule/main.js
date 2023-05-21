@@ -1,9 +1,16 @@
 var loadData = (data) => {
   let detailCard = document.getElementById("detailCard")
 
-    detailCard.innerHTML = `
+  detailCard.innerHTML = `
     ${data}
   `
+
+  setTimeout(() => {
+    $('html,body').animate({
+      scrollTop: $("#active").offset().top
+    },
+      'fast');
+  }, 300);
 }
 
 
@@ -100,24 +107,24 @@ var importdata = $.getJSON("/assets/data.json", function () {
   for (const i in weeks) {
     // each week box goes herez
     weekCard += `
-      <details class="one" id="week${parseInt(i)+1}" ${(parseInt(i)===activeweek)? "open":"close"}>
-        <summary>Week&nbsp${parseInt(i)+1}</summary>
+      <details class="one" id="week${parseInt(i) + 1}" ${(parseInt(i) === activeweek) ? "open" : "open"}>
+        <summary>Week&nbsp${parseInt(i) + 1}</summary>
     `
     for (const j in weeks[`${i}`]) {
       // each day day goes here
 
-      let temp= weeks[`${i}`][`${j}`][0]["Date (double click to pick)"].split("/")
+      let temp = weeks[`${i}`][`${j}`][0]["Date (double click to pick)"].split("/")
 
-      let date = "Day"+String(parseInt(j)-127)+"&nbsp&nbsp"+temp[1]+"&minus;"+temp[0]+"&minus;"+temp[2]
+      let date = "Day" + String(parseInt(j) - 127) + "&nbsp&nbsp" + temp[1] + "&minus;" + temp[0] + "&minus;" + temp[2]
 
-      weekCard+=`
-      <details class="two" ${(parseInt(j)===activeday)? "open id='active'":"close id=''"}>
+      weekCard += `
+      <details class="two" ${(parseInt(j) === activeday) ? "open id='active'" : "open id=''"}>
         <summary> ${date}</summary>
       `
 
       weeks[`${i}`][`${j}`].forEach(element => {
         // each profile card goes here
-        weekCard+=`
+        weekCard += `
             <details class="three" open>
               <summary>
                 <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
@@ -131,7 +138,8 @@ var importdata = $.getJSON("/assets/data.json", function () {
               </summary>
               <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
                 <div style="height: 10px;"></div>
-                <button onclick="redirect('/details/?id=61')"
+                <h3>${element["Time ( IST )"]} (IST)</h3>
+                <button onclick="redirect('/details/?id=${element["id"]}')"
                   style="width: fit-content;text-align: center;background-color: #FF0000;color: white;padding: 16px 24px;border-radius: 10px;outline: none;border: none;cursor: pointer;">
                   View Details
                 </button>
@@ -154,13 +162,11 @@ var importdata = $.getJSON("/assets/data.json", function () {
       </details>
     `
 
-  } 
+  }
   console.log(weekCard);
 
   loadData(weekCard)
 
-  $('html,body').animate({
-    scrollTop: $("#active").offset().top},
-    'slow');
+  
 
 })
