@@ -40,7 +40,8 @@ var importdata = $.getJSON("/assets/data.json", function () {
     "0": {},
     "1": {},
     "2": {},
-    "3": {}
+    "3": {},
+    "4": {}
   }
 
   for (let i = 0; i < data.length; i++) {
@@ -57,7 +58,7 @@ var importdata = $.getJSON("/assets/data.json", function () {
     data[i]["time"] = currentTime
   }
 
-  console.log(weeks);
+  console.log(data);
 
   // data.sort((a, b) => (a.dayNo > b.dayNo) ? 1 : ((b.dayNo > a.dayNo) ? -1 : 0))
   // data.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
@@ -67,7 +68,7 @@ var importdata = $.getJSON("/assets/data.json", function () {
     let currentWeekNumber = data[i]["weekNo"];
     let currentDayNumber = data[i]["dayNo"];
 
-    if (currentWeekNumber === 19 | currentWeekNumber === 20 | currentWeekNumber === 21 | currentWeekNumber === 22) {
+    if (currentWeekNumber === 19 | currentWeekNumber === 20 | currentWeekNumber === 21 | currentWeekNumber === 22 | currentWeekNumber === 23) {
       if (weeks[String(currentWeekNumber - 19)][`${currentDayNumber}`]) {
         weeks[String(currentWeekNumber - 19)][`${currentDayNumber}`].push(data[i]);
       }
@@ -163,7 +164,7 @@ var importdata = $.getJSON("/assets/data.json", function () {
     `
 
   }
-  console.log(weekCard);
+  // console.log(weekCard);
 
   loadData(weekCard)
 
