@@ -114,8 +114,10 @@ var importdata = $.getJSON("/assets/data.json", function () {
         checkNextweek += 1
     }
 
-    while (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`] === undefined) {
+    limit = 0
+    while (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`] === undefined & limit<500) {
         checkNextday += 1
+        limit+=1
     }
 
     loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`])
