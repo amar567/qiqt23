@@ -85,7 +85,7 @@ var importdata = $.getJSON("/assets/data.json", function () {
         let currentWeekNumber = data[i]["weekNo"];
         let currentDayNumber = data[i]["dayNo"];
 
-        if (currentWeekNumber === 19 | currentWeekNumber === 20 | currentWeekNumber === 21 | currentWeekNumber === 22) {
+        if (currentWeekNumber === 19 | currentWeekNumber === 20 | currentWeekNumber === 21 | currentWeekNumber === 22 | currentWeekNumber === 23) {
             if (weeks[String(currentWeekNumber - 19)][`${currentDayNumber}`]) {
                 weeks[String(currentWeekNumber - 19)][`${currentDayNumber}`].push(data[i]);
             }
