@@ -123,7 +123,12 @@ var importdata = $.getJSON("/assets/data.json", function () {
     loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`])
     // if friday add 2
     if (today.getDay() === 5) {
-        loadData(weeks[`${today.getWeek() - 19 + checkNextweek +1}`][`${today.getDayoftheyr() + checkNextday +3}`])
+        // check for saturday just in case 
+        if (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday + 1}`].length != 0) {
+            loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday +1}`])
+        }else{
+            loadData(weeks[`${today.getWeek() - 19 + checkNextweek +1}`][`${today.getDayoftheyr() + checkNextday +3}`])
+        }
     }else{
         loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday +1}`])
     }
