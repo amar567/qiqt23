@@ -8,7 +8,7 @@ var loadData = (data) => {
             `
             <div style="display: flex;flex-direction: row;width: 300px;align-items: center;justify-content: space-between;">
                 <div style="min-width:30%;">
-                    ${data[i]["Time ( IST )"].split(":")[0]+" : "+data[i]["Time ( IST )"].split(":")[1]}
+                    ${data[i]["Time ( IST )"].split(":")[0] + " : " + data[i]["Time ( IST )"].split(":")[1]}
                 </div>
                 <div>
                     ${data[i]["Name"]}
@@ -18,9 +18,9 @@ var loadData = (data) => {
         )
     }
 
-    let temp= data[0]["Date (double click to pick)"].split("/")
+    let temp = data[0]["Date (double click to pick)"].split("/")
 
-    let date = temp[1]+" - "+temp[0]+" - "+temp[2]
+    let date = temp[1] + " - " + temp[0] + " - " + temp[2]
 
     detailCard.innerHTML += `
         <h2>
@@ -111,13 +111,17 @@ var importdata = $.getJSON("/assets/data.json", function () {
 
     // if saturday increase the week by 1
     if (today.getDay() === 6) {
-        checkNextweek += 1
+        if (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday }`].length != 0) {
+            loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday }`])
+        } else {
+            checkNextweek += 1
+        }
     }
 
     limit = 0
-    while (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`] === undefined & limit<500) {
+    while (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`] === undefined & limit < 500) {
         checkNextday += 1
-        limit+=1
+        limit += 1
     }
 
     loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`])
@@ -125,12 +129,12 @@ var importdata = $.getJSON("/assets/data.json", function () {
     if (today.getDay() === 5) {
         // check for saturday just in case 
         if (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday + 1}`].length != 0) {
-            loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday +1}`])
-        }else{
-            loadData(weeks[`${today.getWeek() - 19 + checkNextweek +1}`][`${today.getDayoftheyr() + checkNextday +3}`])
+            loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday + 1}`])
+        } else {
+            loadData(weeks[`${today.getWeek() - 19 + checkNextweek + 1}`][`${today.getDayoftheyr() + checkNextday + 3}`])
         }
-    }else{
-        loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday +1}`])
+    } else {
+        loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday + 1}`])
     }
 })
 
