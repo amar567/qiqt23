@@ -96,9 +96,9 @@ var importdata = $.getJSON("/assets/data.json", function () {
     checkNextweek += 1
   }
 
-  while (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`] === undefined) {
-    checkNextday += 1
-  }
+  // while (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`] === undefined) {
+  //   checkNextday += 1
+  // }
 
   let activeweek = today.getWeek() - 19 + checkNextweek
   let activeday = today.getDayoftheyr() + checkNextday
