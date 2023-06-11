@@ -10,7 +10,7 @@ var loadData = (data) => {
   //     scrollTop: $("#active").offset().top
   //   },
   //     'fast');
-    window.location.assign(window.location.href+'#active')
+    window.location.assign('#active')
   }, 700);
 }
 
