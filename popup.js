@@ -61,6 +61,7 @@ var importdata = $.getJSON("/assets/data.json", function () {
         "2": {},
         "3": {},
         "4": {},
+        "5": {},
     }
 
     for (let i = 0; i < data.length; i++) {
@@ -77,15 +78,15 @@ var importdata = $.getJSON("/assets/data.json", function () {
         data[i]["time"] = currentTime
     }
 
-    // data.sort((a, b) => (a.dayNo > b.dayNo) ? 1 : ((b.dayNo > a.dayNo) ? -1 : 0))
-    // data.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
+    data.sort((a, b) => (a.dayNo > b.dayNo) ? 1 : ((b.dayNo > a.dayNo) ? -1 : 0))
+    data.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
 
     for (let i = 0; i < data.length; i++) {
 
         let currentWeekNumber = data[i]["weekNo"];
         let currentDayNumber = data[i]["dayNo"];
 
-        if (currentWeekNumber === 19 | currentWeekNumber === 20 | currentWeekNumber === 21 | currentWeekNumber === 22 | currentWeekNumber === 23) {
+        if (currentWeekNumber === 19 | currentWeekNumber === 20 | currentWeekNumber === 21 | currentWeekNumber === 22 | currentWeekNumber === 23 | currentWeekNumber === 24) {
             if (weeks[String(currentWeekNumber - 19)][`${currentDayNumber}`]) {
                 weeks[String(currentWeekNumber - 19)][`${currentDayNumber}`].push(data[i]);
             }
@@ -128,11 +129,11 @@ var importdata = $.getJSON("/assets/data.json", function () {
     // if friday add 2
     if (today.getDay() === 5) {
         // check for saturday just in case 
-        if (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday + 1}`].length != 0) {
-            loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday + 1}`])
-        } else {
-            loadData(weeks[`${today.getWeek() - 19 + checkNextweek + 1}`][`${today.getDayoftheyr() + checkNextday + 3}`])
-        }
+        loadData(weeks[`${today.getWeek() - 19 + checkNextweek + 1}`][`${today.getDayoftheyr() + checkNextday + 3}`])
+        // if (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday + 1}`].length != 0) {
+        //     loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday + 1}`])
+        // } else {
+        // }
     } else {
         loadData(weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday + 1}`])
     }

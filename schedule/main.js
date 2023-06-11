@@ -6,10 +6,11 @@ var loadData = (data) => {
   `
 
   setTimeout(() => {
-    $('html,body').animate({
-      scrollTop: $("#active").offset().top
-    },
-      'fast');
+  //   $('html,body').animate({
+  //     scrollTop: $("#active").offset().top
+  //   },
+  //     'fast');
+    window.location.assign(window.location.href+'#active')
   }, 700);
 }
 
@@ -41,7 +42,8 @@ var importdata = $.getJSON("/assets/data.json", function () {
     "1": {},
     "2": {},
     "3": {},
-    "4": {}
+    "4": {},
+    "5": {},
   }
 
   for (let i = 0; i < data.length; i++) {
@@ -68,7 +70,7 @@ var importdata = $.getJSON("/assets/data.json", function () {
     let currentWeekNumber = data[i]["weekNo"];
     let currentDayNumber = data[i]["dayNo"];
 
-    if (currentWeekNumber === 19 | currentWeekNumber === 20 | currentWeekNumber === 21 | currentWeekNumber === 22 | currentWeekNumber === 23) {
+    if (currentWeekNumber === 19 | currentWeekNumber === 20 | currentWeekNumber === 21 | currentWeekNumber === 22 | currentWeekNumber === 23 | currentWeekNumber === 24) {
       if (weeks[String(currentWeekNumber - 19)][`${currentDayNumber}`]) {
         weeks[String(currentWeekNumber - 19)][`${currentDayNumber}`].push(data[i]);
       }
@@ -91,14 +93,14 @@ var importdata = $.getJSON("/assets/data.json", function () {
   let checkNextweek = 0;
   let checkNextday = 0;
 
-  // if saturday increase the week by 1
-  if (today.getDay() === 6) {
-    checkNextweek += 1
-  }
-
-  // while (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`] === undefined) {
-  //   checkNextday += 1
+  // // if saturday increase the week by 1
+  // if (today.getDay() === 6) {
+  //   checkNextweek += 1
   // }
+
+  while (weeks[`${today.getWeek() - 19 + checkNextweek}`][`${today.getDayoftheyr() + checkNextday}`] === undefined) {
+    checkNextday += 1
+  }
 
   let activeweek = today.getWeek() - 19 + checkNextweek
   let activeday = today.getDayoftheyr() + checkNextday
