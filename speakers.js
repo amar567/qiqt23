@@ -122,7 +122,7 @@ let initializeSpeakers = (data) => {
       
         yt.innerHTML = `
         <iframe style="width: 560px;height: 315px;max-width: 90%;"
-        src="https://www.youtube.com/embed/V_5wmeICXiU"
+        src="https://www.youtube.com/embed/videoseries?list=PLR02U0e82ziMoBYrRMuFLeXVNdAYWvT3Q"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
@@ -144,7 +144,7 @@ let initializeSpeakers = (data) => {
       
         yt.innerHTML = `
         <iframe style="width: 560px;height: 315px;max-width: 90%;"
-        src="https://www.youtube.com/embed/V_5wmeICXiU"
+        src="https://www.youtube.com/embed/videoseries?list=PLR02U0e82ziMoBYrRMuFLeXVNdAYWvT3Q"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
