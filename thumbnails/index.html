@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Youtube Thumbnails</title>
+    <script src="./jszip.min.js"></script>
+    <script src="./FileSaver.js"></script>
+    <script src="./html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- <script src="./jquery-1.8.3.min.js"></script> -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;300;400;600;700&display=swap');
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+    </style>
+
+    <script>
+
+        // initiate a zip file
+        var zip = new JSZip();
+        var thumbnails = zip.folder("thumbnails");
+
+        // this async function converts current div to canvas then to base 64 which is stored as a part of zip blob
+        async function addImageToZip(ImgName, Name, Title) {
+
+            document.body.innerHTML = `
+            <div id="generatorDiv"
+                style="width: 1920px;height: 1080px;background-image: url(./bg.png);display: flex;flex-direction: row;justify-content: center;align-items: center;">
+                <div style="width: 50%;display: flex;align-items: center;justify-content: flex-end;color: white;flex-direction: column;">
+                    <img src="/assets/speakers/highres/${ImgName}.png" style="width:800px;height: 800px;border-radius: 800px;"
+                        alt="">
+                    <h1 style="color: white; font-size: 4.2rem;width: 100%;padding: 0 40px;widhth:inherit;text-align:center;">${Name}</h1>
+                </div>
+                <div style="width: 50%;padding-top: 00px;">
+                    <h1 id="title" style="color: white; font-size: 4.4rem;padding: 0 40px;">
+                        ${Title}
+                    </h1>    
+                <div/>
+            </div>
+        `
+
+            await html2canvas(document.getElementById('generatorDiv')).then(function (canvasTag) {
+                document.body.appendChild(canvasTag);
+
+                // setup canvas
+                document.getElementsByTagName('canvas')[0].id = 'canvas'; // getElementsByTag returns a list of such tags 
+                var canvas = document.getElementById('canvas'),
+                    ctx = canvas.getContext("2d");
+                canvas.style.display = 'none';
+
+                // add reqired image
+                var pngUrl = canvas.toDataURL().replace('data:image/png;base64,', '');
+                let imgData = pngUrl
+                thumbnails.file(ImgName + ".png", imgData, { base64: true });
+
+            })
+
+            return (null)
+        }
+
+        ImgName = 'Anubhav'
+        Name = 'Dr. Anubhav Bassi'
+        Title = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima vitae eligendi deserunt illum quibusdam repellendus, odio ut?'
+
+        async function iterate(data) {
+
+            for (let i = 0; i < data.length; i++) {
+                await addImageToZip(data[i]['Image name'], data[i]['Name'], data[i]['Title'])
+            }
+
+            // for (let i = 0; i < 10; i++) {
+            //     await addImageToZip(ImgName + String(i), Name, Title)
+            // }
+        }
+
+        async function start() {
+
+            let data
+
+            // import JSON -- sort data -- iterate
+            var importdata = $.getJSON("./test.json", async function () {
+                data = importdata.responseJSON
+
+                await iterate(data)
+                console.log('hi');
+                zip.generateAsync({ type: "blob" })
+                    .then(function (content) {
+                        // see FileSaver.js
+                        saveAs(content, "example.zip");
+                    });
+            })
+
+
+        }
+
+
+
+
+
+
+
+
+
+        // var background = new Image();
+        // background.src = "./bg.jpg";
+
+        // background.onload = function () {
+        //     ctx.drawImage(background, 0, 0);
+
+        //     // Create gradient
+        //     const grd = ctx.createLinearGradient(0, 0, 200, 0);
+        //     grd.addColorStop(0, "red");
+        //     grd.addColorStop(1, "white");
+
+        //     // Fill with gradient
+        //     ctx.fillStyle = grd;
+        //     ctx.fillRect(10, 10, 150, 80);
+
+        //     // var pngUrl = canvas.toDataURL();
+        //     // document.getElementById('img').src = pngUrl
+
+        //     var pngUrl = canvas.toDataURL().replace('data:image/png;base64,', '');
+        //     console.log(pngUrl);
+        //     let imgData = pngUrl
+
+        //     // var zip = new JSZip();
+        //     // zip.file("Hello.txt", "Hello World\n");
+        //     // var img = zip.folder("images");
+        //     // img.file("smile.png", imgData, { base64: true });
+        //     // zip.generateAsync({ type: "blob" })
+        //     //     .then(function (content) {
+        //     //         // see FileSaver.js
+        //     //         saveAs(content, "example.zip");
+        //     //     });
+
+        // }
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <button onclick="start()">
+        <h1>Start</h1>
+    </button>
+
+    <!-- <div id="generatorDiv"
+        style="width: 1920px;height: 1080px;background-image: url(./bg.png);display: flex;flex-direction: row;justify-content: center;align-items: center;">
+        <div style="width: 40%;display: flex;align-items: center;justify-content: flex-end;color: white;flex-direction: column;">
+            <img src="./pp.png" style="width:500px;height: 500px;border-radius: 500px;"
+                alt="">
+            <h1 style="color: white; font-size: 2.8rem;width: 60%;padding: 0 40px;">Anubhav singh Bassi</h1>
+        </div>
+        <h1 id="title" style="color: white; font-size: 3.6rem;width: 60%;padding: 0 40px;">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima vitae eligendi deserunt illum quibusdam
+            repellendus, odio ut? Libero expedita ad, eos, voluptatum molestiae ducimus, voluptas repudiandae mollitia
+            dicta non eligendi?
+        </h1>
+    </div> -->
+
+</body>
+
+</html>
