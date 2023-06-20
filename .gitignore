@@ -5,3 +5,15 @@ assets/test/*
 assets/art/*
 assets/people/raw/*
 assets/ytvid/*
+
+thumbnails/thumbnails
+thumbnails/example.zip
+
+thumbnails/client_secret.json
+thumbnails/yt2.json
+
+temp
+
+.vscode
+
+thumbnails/Stuk-jszip-v3.10.1-1-g2ceb998.zip
